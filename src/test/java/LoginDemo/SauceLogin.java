@@ -25,11 +25,10 @@ public class SauceLogin {
 	
 	@When ("I enter Username as \"standard_user\" and Password as \"secret_sauce\"")
 	public void enter_username_as_standard_user() throws InterruptedException {
-		driver.findElement(By.id("user-name")).sendKeys("standard_user");
-		driver.findElement(By.id("password")).sendKeys("secret_sauce");
-		driver.findElement(By.id("login-button")).click();
+		driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys("standard_user");
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("secret_sauce");
+		driver.findElement(By.xpath("//input[@id='login-button']")).click();
 		System.out.println("Logged in successfully");
-		Thread.sleep(2000);
 		
 	}
 
@@ -37,21 +36,16 @@ public class SauceLogin {
 	public void  after_adding_to_cart_and_order() throws InterruptedException
 	{
 		
-		driver.findElement(By.id("add-to-cart-sauce-labs-bolt-t-shirt")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("add-to-cart-test.allthethings()-t-shirt-(red)")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.className("shopping_cart_link")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("checkout")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("first-name")).sendKeys("Khushboo");
-		driver.findElement(By.id("last-name")).sendKeys("Khushboo");
-		driver.findElement(By.id("postal-code")).sendKeys("500032");
-		driver.findElement(By.id("continue")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("finish")).click();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-bolt-t-shirt']")).click();
+		driver.findElement(By.xpath("//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")).click();
+		driver.findElement(By.xpath("//a[@class='shopping_cart_link']")).click();
+		driver.findElement(By.xpath("//button[@id='checkout']")).click();
+		driver.findElement(By.xpath("//input[@id='first-name']")).sendKeys("Khushboo");
+		driver.findElement(By.xpath("//input[@id='last-name']")).sendKeys("Khushboo");
+		driver.findElement(By.xpath("//input[@id='postal-code']")).sendKeys("500032");
+		driver.findElement(By.xpath("//input[@id='continue']")).click();
+		driver.findElement(By.xpath("//button[@id='finish']")).click();
+		
 		
 	}
  @Then("I should get success message")
